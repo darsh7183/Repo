@@ -1,0 +1,21 @@
+---
+- name: Uninstall multiple packages on Linux
+  hosts: all
+  gather_facts: yes
+
+  tasks:
+    - name: Uninstall iotop
+      yum:
+        name:
+          - iotop
+        state: absent
+      become: yes
+
+    - name: Uninstall telnet
+      yum:
+        name:
+          - telnet
+        state: absent
+      become: yes
+
+    # Add more tasks for other packages if needed
